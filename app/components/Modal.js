@@ -30,11 +30,11 @@ const Modal = ({ currentUser, setIsModal, setUserData }) => {
   };
 
   return (
-    <div className="fixed inset-0  bg-opacity-50 backdrop-blur-sm bg-black">
+    <div className="fixed inset-0  bg-opacity-50 backdrop-blur-sm bg-black ">
       <div className=" flex flex-col">
         <form
           onSubmit={handleSubmit}
-          className=" flex flex-col w-[500px]   m-auto  mt-20 bg-white p-5"
+          className=" flex flex-col w-[350px] md:w-[500px]  m-auto  mt-20 bg-white p-5 "
         >
           <h1 className=" font-bold text-2xl text-center mb-5">Edite User</h1>
           <span
