@@ -53,6 +53,12 @@ export default function Home() {
     setIsModal(true)
   }
 
+   let localData = JSON.parse(localStorage.getItem('user')) ?? [];
+
+  const filteredData = localData.filter((item) =>
+    item.name.toLowerCase().includes(search.toLowerCase())
+  
+  );
 
   console.log("filteredData",filteredData)
   const handleSearch=(e)=>{
