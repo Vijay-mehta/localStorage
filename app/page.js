@@ -17,7 +17,7 @@ export default function Home() {
 
   const [userData, setUserData] = useState([])
   const [currentUser,setCurrentUser] =useState('')
-   
+   const [search,setSearch] =useState('')
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -51,14 +51,20 @@ export default function Home() {
   const handleEdite=(user)=>{
    setCurrentUser(user)
     setIsModal(true)
-    
   }
+
+
+  console.log("filteredData",filteredData)
+  const handleSearch=(e)=>{
+    setSearch(e.target.value)
+  }
+
   return (
     <>
   {isModal && <Modal currentUser={currentUser} setIsModal={setIsModal} setUserData={setUserData}/>}
       <div className=" flex flex-col">
-        
         <form onSubmit={handleSubmit} className=" flex flex-col md:w-[500px]   md:m-auto  mt-10  bg-white ">
+          
         <h1 className=" font-bold text-2xl text-center mb-5">Create User</h1>
           <input type="text" value={data.name} placeholder="Enter Name" name="name" onChange={handleChange} className="border-2 m-3 p-2 " />
           <input type="email" value={data.email} placeholder="Enter Email" name="email" onChange={handleChange} className="border-2 mx-3 p-2" />
@@ -69,9 +75,10 @@ export default function Home() {
           } disabled={!data.name && !data.email && !data.userId}>Submit</button></div>
         </form>
       </div>
+     {userData.length> 0 ?<div className=" text-center"><input type="text" placeholder="Search By Name" onChange={handleSearch} className=" px-3 py-3  border-2   mt-5"/></div>:null}
       {
-        userData && (
-          userData.map((user, index) => (
+       filteredData && userData ? (
+        filteredData.map((user, index) => (
             <div key={index} className=" p-3 mt-3 w-[350px]  shadow-lg   m-auto">
              <div className=" flex flex-row justify-end"> 
              <span className="mr-5 cursor-pointer " onClick={()=>handleEdite(user)} >&#9998;</span>
@@ -83,7 +90,7 @@ export default function Home() {
               <h2>{user.email}</h2>
 
             </div>))
-        )
+        ):<h2>User Not Found</h2>
       }
     </>
   );
