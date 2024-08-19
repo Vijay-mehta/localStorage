@@ -54,7 +54,7 @@ export default function Home() {
   }
 
 
-  const filteredData = userData.filter((item) =>
+  const filteredData = userData?.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase())
   
   );
