@@ -79,7 +79,7 @@ export default function Home() {
           } disabled={!data.name && !data.email && !data.userId}>Submit</button></div>
         </form>
       </div>
-     {userData.length> 0 ?<div className=" text-center"><input type="text" placeholder="Search By Name" onChange={handleSearch} className=" px-3 py-3  border-2   mt-5"/></div>:null}
+     {userData?.length> 0 ?<div className=" text-center"><input type="text" placeholder="Search By Name" onChange={handleSearch} className=" px-3 py-3  border-2   mt-5"/></div>:null}
      <div className="  grid  grid-cols-1 md:grid-cols-4  gap-2"> {
        
        filteredData && userData && (
