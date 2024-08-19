@@ -53,9 +53,8 @@ export default function Home() {
     setIsModal(true)
   }
 
-   let localData = JSON.parse(localStorage.getItem('user')) ?? [];
 
-  const filteredData = localData.filter((item) =>
+  const filteredData = userData.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase())
   
   );
@@ -82,8 +81,9 @@ export default function Home() {
         </form>
       </div>
      {userData.length> 0 ?<div className=" text-center"><input type="text" placeholder="Search By Name" onChange={handleSearch} className=" px-3 py-3  border-2   mt-5"/></div>:null}
-      {
-       filteredData && userData ? (
+     <div className="  grid  grid-cols-1 md:grid-cols-4  gap-2"> {
+       
+       filteredData && userData && (
         filteredData.map((user, index) => (
             <div key={index} className=" p-3 mt-3 w-[350px]  shadow-lg   m-auto">
              <div className=" flex flex-row justify-end"> 
@@ -96,8 +96,9 @@ export default function Home() {
               <h2>{user.email}</h2>
 
             </div>))
-        ):<h2>User Not Found</h2>
-      }
+        )
+        
+      }</div>
     </>
   );
 }
