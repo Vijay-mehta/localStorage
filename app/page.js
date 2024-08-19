@@ -59,7 +59,6 @@ export default function Home() {
   
   );
 
-  console.log("filteredData",filteredData)
   const handleSearch=(e)=>{
     setSearch(e.target.value)
   }
