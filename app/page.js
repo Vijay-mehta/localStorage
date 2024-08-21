@@ -5,8 +5,6 @@ import Modal from "./components/Modal";
 
 export default function Home() {
 
-
-
   const [data, setData] = useState({
     name: "", email: "",userId:""
   })
@@ -84,13 +82,13 @@ export default function Home() {
        
        filteredData && userData && (
         filteredData.map((user, index) => (
-            <div key={index} className=" p-3 mt-3 w-[350px]  shadow-lg   m-auto">
+            <div key={index} className=" p-3 mt-3 w-[350px]  shadow-lg   m-auto   rounded-lg  bg-gray-800 text-white">
              <div className=" flex flex-row justify-end"> 
              <span className="mr-5 cursor-pointer " onClick={()=>handleEdite(user)} >&#9998;</span>
               <span className="cursor-pointer " onClick={() => handleRemove(index)}>&times;</span>
               
               </div>
-              <h2 className=" text-black" >{user.userId}</h2>
+              <h2 >{user.userId}</h2>
               <h2>{user.name}</h2>
               <h2>{user.email}</h2>
 
